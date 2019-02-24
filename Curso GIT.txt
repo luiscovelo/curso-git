@@ -1,0 +1,74 @@
+Configurar os dados do usuário
+	
+	git config --global user.name "[...]"
+	git config --global user.email "[...]"
+	git config --global core.editor sub
+
+Inicializando o projeto com a estrutura do Git
+	
+	git init
+
+Ciclo de vida dos status dos arquivos
+
+	untracked => é o momento em que o arquivo acabou de entrar no repositorio, mas o git ainda não verificou.
+	unmodified => ele existe no git mas o arquivo não foi alterado anteriormente
+	modified => arquivo alterado
+	staged => é o arquivo final para incorporar no commit -> após o commit estes arquivos voltam para o estado umodified
+
+-> git status 
+	=> serve para mostrar a situação atual do repositorio, te mostra em que branch voce está, se teve commit e 	se tem arquivo para commit
+
+-> git add 
+	=> serve para adicionar um arquivo na branch para o "commit"
+	=> Após algum arquivo ser modificado, devemos usar o add novamente para deixar o arquivo pronto para o "commit"
+
+-> commit
+	Serve para enviar todos seus arquivos adicionados na branch para o repositorio assim criando uma nova versão.
+	Comando: git commit -m "Descreva o que está branch faz [...]"
+	Comando: git commit -am "Descreva a branch" => para commit um arquivo que ja existiu na branch.
+
+
+=> Visualizando logs
+	
+	git log
+		Observar tudo o que tem e o que mudado/acrescentado
+	git log --decorate
+	git log --autor"[nome do responsavel]"
+	git shortlog => mostra em ordem alfabetica os autores e seus commits
+	git shortlog -sn => mostra de forma curta o nome do autor e quantos commits efetuados
+	git --graph => mostra um grafico das alterações dos commits
+	git show [hash do commit] mostra detalhes do commit
+
+=> Usando o diff
+
+	git diff => mostra o que foi alterado nos arquivos/arquivo / bom para revisar o código antes de commit
+	git diff --name-only / serve para mostrar o nome do arquivo alterado
+
+=> Desfazendo as coisas
+	
+	git-checkout [nome do arquivo] => serve para voltar o arquivo no status do ultimo commit
+	git reset HEAD [nome do arquivo] => se voce adicionou o mesmo na branch, use para remover e poder editar novamente
+
+	git reset --soft [hash do c.] => deleta o commit e volta o status dos arquivos na branch para commitar novamente
+	git reset --mixed [hash do c.] => deleta o commit e volta o status para modified
+	git reset --hard [hash do c.] => ignora tudo e deleta o commit
+	
+	sempre seleciona a hash do commit que voce quer alterar acima 
+
+
+=> comandos
+	
+	git push origin [nome do branch] //enviar os commit para o repositorio
+	git checkout -b [nome do branch] //criar branch
+	git checkout [nome do branch] // trocar de branch
+	git branch -D [nome do branch] // deletar
+
+=> git merge
+=> git stash // serve para salvar uma branch que ainda não pode ser commitada por estar em processo.
+=> git stash aplly // retorna a branch para mudança
+=> git stash clear // limpa a lista
+
+=> git tag -a [alguma versao (1.0.0)] -m "Descrição da TAG"
+=> git revert [hash do c.]
+
+		
