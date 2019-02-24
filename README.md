@@ -1,0 +1,1 @@
+Este projeto tem a finalidade de aplicar os comandos referente ao curso de Git
